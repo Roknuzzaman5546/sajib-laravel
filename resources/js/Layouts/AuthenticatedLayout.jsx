@@ -9,7 +9,89 @@ export default function Authenticated({ user, header, children }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
 
     return (
-        <div className="min-h-screen bg-gray-100">
+        <div className="min-h-screen">
+            <div className="drawer lg:drawer-open">
+                <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+                <div className="drawer-content">
+                    <div>
+                        <ul className='flex justify-around items-center'>
+                            <li>Item 1</li>
+                            <li>Item 2</li>
+                            <li>Item 3</li>
+                        </ul>
+                        <div className='flex items-center gap-5 md:gap-9'>
+                            <div className='relative notifications z-10'>
+                                <LuBell className='text-lg md:text-xl' />
+                            </div>
+                            <div className='flex items-center gap-2 relative profile z-10'>
+                                <img src={user?.profile_image ?? "/assets/user.png"} className='w-8 h-8 md:w-10 md:h-10' alt="user avater" />
+                                <div className='text-xs md:text-sm'>
+                                    <p className='font-semibold'>{user?.name}</p>
+                                    <p> <span className='font-bold'>{user?.balance ?? 0}</span><span className='font-normal'> OZTG</span></p>
+                                </div>
+                                <div className='absolute top-10 right-0 profile-info'>
+                                    <div className='w-[249px] rounded-md shadow-card-shadow-2 border-t-[3px] border-t-[#822DFF] py-3 px-2  text-[#333333BF] bg-white mt-2'>
+                                        <NavLink
+                                            href={route('profile.edit')}
+                                            active={route().current('profile.edit')}
+                                        >
+                                            <img src="/assets/icons/sidebar/profile-drop.png" className='w-[14.5px] h-[14.5px]' alt="dashbord icons" />
+                                            <span className='text-sm font-normal'>
+                                                Profile
+                                            </span>
+                                        </NavLink>
+                                        <Link
+                                            className="flex justify-between items-center gap-2 px-2 py-1 rounded-lg mt-1"
+                                        >
+                                            <div
+                                                className="flex items-center gap-1"
+                                            >
+                                                <img src="/assets/icons/sidebar/Balance.png" className='w-[14.5px] h-[14.5px]' alt="dashbord icons" />
+                                                <span className='text-sm font-normal'>
+                                                    Balance
+                                                </span>
+                                            </div>
+                                            <p className='text-xs'>
+                                                <span className='font-semibold text-black'>{user?.wallet?.balance ?? 0}</span><span> OZTG</span>
+                                            </p>
+                                        </Link>
+                                        <NavLink
+                                            href={route('activities')}
+                                            active={route().current('activities')}
+                                        >
+                                            <img src="/assets/icons/sidebar/Activities.png" className='w-[14.5px] h-[14.5px]' alt="dashbord icons" />
+                                            <span className='text-sm font-normal'>
+                                                Activities
+                                            </span>
+                                        </NavLink>
+                                        <Link
+                                            href={route('logout')} method="post" as="button"
+                                            className="flex items-center gap-1 hover:bg-[#EDEFF1] px-2 py-1 rounded-lg mt-1"
+                                        >
+                                            <img src="/assets/icons/sidebar/sign-out-drop.png" className='w-[14.5px] h-[14.5px]' alt="dashbord icons" />
+                                            <span className='text-sm font-normal'>
+                                                Sign Out
+                                            </span>
+                                        </Link>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {/* Page content here */}
+                    <main>{children}</main>
+                </div>
+                <div className="drawer-side">
+                    <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
+                    <ul className="menu bg-lime-500 text-base-content min-h-full w-80 p-4">
+                        {/* Sidebar content here */}
+                        <li><a>Sidebar Item 1</a></li>
+                        <li><a>Sidebar Item 2</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            {/* 
             <nav className="bg-white border-b border-gray-100">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between h-16">
@@ -125,7 +207,7 @@ export default function Authenticated({ user, header, children }) {
                 </header>
             )}
 
-            <main>{children}</main>
+            <main>{children}</main> */}
         </div>
     );
 }
