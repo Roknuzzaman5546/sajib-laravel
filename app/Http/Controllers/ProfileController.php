@@ -45,6 +45,7 @@ class ProfileController extends Controller
      */
     public function destroy(Request $request): RedirectResponse
     {
+        dd($request->validate);
         $request->validate([
             'password' => ['required', 'current_password'],
         ]);
