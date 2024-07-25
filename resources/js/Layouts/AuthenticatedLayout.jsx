@@ -3,6 +3,7 @@ import ApplicationLogo from '@/Components/ApplicationLogo';
 import Dropdown from '@/Components/Dropdown';
 import NavLink from '@/Components/NavLink';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
+import { LuBell } from "react-icons/lu";
 import { Link } from '@inertiajs/react';
 
 export default function Authenticated({ user, header, children }) {
@@ -13,11 +14,17 @@ export default function Authenticated({ user, header, children }) {
             <div className="drawer lg:drawer-open">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content">
-                    <div>
-                        <ul className='flex justify-around items-center'>
-                            <li>Item 1</li>
-                            <li>Item 2</li>
-                            <li>Item 3</li>
+                    <div className='flex items-center justify-between bg-lime-500 py-4 text-black px-4 z-10'>
+                        <ul className='flex justify-center items-center gap-5 '>
+                            <NavLink href={route('dashboard')} active={route().current('dashboard')}>
+                                Dashboard
+                            </NavLink>
+                            <NavLink href={route('wallet')} active={route().current('wallet')}>
+                                Wallet
+                            </NavLink>
+                            <NavLink href={route('product.upload')} active={route().current('product.upload')}>
+                                Upload Product
+                            </NavLink>
                         </ul>
                         <div className='flex items-center gap-5 md:gap-9'>
                             <div className='relative notifications z-10'>
@@ -35,7 +42,7 @@ export default function Authenticated({ user, header, children }) {
                                             href={route('profile.edit')}
                                             active={route().current('profile.edit')}
                                         >
-                                            <img src="/assets/icons/sidebar/profile-drop.png" className='w-[14.5px] h-[14.5px]' alt="dashbord icons" />
+                                            <img src="/assets/profile-drop.png" className='w-[14.5px] h-[14.5px]' alt="dashbord icons" />
                                             <span className='text-sm font-normal'>
                                                 Profile
                                             </span>
@@ -46,7 +53,7 @@ export default function Authenticated({ user, header, children }) {
                                             <div
                                                 className="flex items-center gap-1"
                                             >
-                                                <img src="/assets/icons/sidebar/Balance.png" className='w-[14.5px] h-[14.5px]' alt="dashbord icons" />
+                                                <img src="/assets/Balance.png" className='w-[14.5px] h-[14.5px]' alt="dashbord icons" />
                                                 <span className='text-sm font-normal'>
                                                     Balance
                                                 </span>
@@ -55,20 +62,11 @@ export default function Authenticated({ user, header, children }) {
                                                 <span className='font-semibold text-black'>{user?.wallet?.balance ?? 0}</span><span> OZTG</span>
                                             </p>
                                         </Link>
-                                        <NavLink
-                                            href={route('activities')}
-                                            active={route().current('activities')}
-                                        >
-                                            <img src="/assets/icons/sidebar/Activities.png" className='w-[14.5px] h-[14.5px]' alt="dashbord icons" />
-                                            <span className='text-sm font-normal'>
-                                                Activities
-                                            </span>
-                                        </NavLink>
                                         <Link
                                             href={route('logout')} method="post" as="button"
                                             className="flex items-center gap-1 hover:bg-[#EDEFF1] px-2 py-1 rounded-lg mt-1"
                                         >
-                                            <img src="/assets/icons/sidebar/sign-out-drop.png" className='w-[14.5px] h-[14.5px]' alt="dashbord icons" />
+                                            <img src="/assets/sign-out-drop.png" className='w-[14.5px] h-[14.5px]' alt="dashbord icons" />
                                             <span className='text-sm font-normal'>
                                                 Sign Out
                                             </span>
@@ -83,11 +81,26 @@ export default function Authenticated({ user, header, children }) {
                 </div>
                 <div className="drawer-side">
                     <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
-                    <ul className="menu bg-lime-500 text-base-content min-h-full w-80 p-4">
-                        {/* Sidebar content here */}
-                        <li><a>Sidebar Item 1</a></li>
-                        <li><a>Sidebar Item 2</a></li>
-                    </ul>
+                    <div className='bg-lime-500 min-h-full w-64 p-4'>
+                        <div className=' flex flex-col items-center justify-center mt-5 gap-2'>
+                            <Link href="/">
+                                <ApplicationLogo className="block h-9 w-auto fill-current text-gray-800" />
+                            </Link>
+                            <h2 className=' text-2xl font-extrabold text-black uppercase'>Roknu<span className=' text-red-600'>zz</span>aman</h2>
+                        </div>
+                        <ul className="menu text-base-content mt-5">
+                            {/* Sidebar content here */}
+                            <NavLink href={route('dashboard')} active={route().current('dashboard')}>
+                                Dashboard
+                            </NavLink>
+                            <NavLink href={route('wallet')} active={route().current('wallet')}>
+                                Wallet
+                            </NavLink>
+                            <NavLink href={route('product.upload')} active={route().current('product.upload')}>
+                                Upload Product
+                            </NavLink>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
@@ -97,21 +110,10 @@ export default function Authenticated({ user, header, children }) {
                     <div className="flex justify-between h-16">
                         <div className="flex">
                             <div className="shrink-0 flex items-center">
-                                <Link href="/">
-                                    <ApplicationLogo className="block h-9 w-auto fill-current text-gray-800" />
-                                </Link>
                             </div>
 
                             <div className="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                                <NavLink href={route('dashboard')} active={route().current('dashboard')}>
-                                    Dashboard
-                                </NavLink>
-                                <NavLink href={route('wallet')} active={route().current('wallet')}>
-                                    Wallet
-                                </NavLink>
-                                <NavLink href={route('product.upload')} active={route().current('product.upload')}>
-                                    Upload Product
-                                </NavLink>
+                                
                             </div>
                         </div>
 
