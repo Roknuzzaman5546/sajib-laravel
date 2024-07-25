@@ -37,6 +37,10 @@ Route::get('/upload', function () {
     return Inertia::render('Product/Upload');
 })->middleware('auth')->name('product.upload');
 
+Route::get('/uploadId/{id}', function ($id) {
+    return "this is upload id" . $id;
+});
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
