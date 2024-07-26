@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\Example\FirstController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UploadController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -29,13 +31,14 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/home', function () {
-    return Inertia::render('Wallet');
-})->middleware('auth')->name('wallet');
+Route::get('/home', [FirstController::class, 'index'])->middleware('auth')->name('wallet');
 
-Route::get('/upload', function () {
-    return Inertia::render('Product/Upload');
-})->middleware('auth')->name('product.upload');
+// route direct view by inertia 
+// Route::get('/upload', function () {
+//     return Inertia::render('Product/Upload');
+// })->middleware('auth')->name('product.upload');
+
+Route::get('/upload', [UploadController::class, 'indexUpload'])->middleware('auth')->name('product.upload');
 
 Route::get('/country', function () {
     return Inertia::render('Product/Upload');
