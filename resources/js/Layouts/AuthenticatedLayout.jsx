@@ -86,7 +86,7 @@ export default function Authenticated({ user, header, children }) {
                             <Link href="/">
                                 <ApplicationLogo className="block h-9 w-auto fill-current text-gray-800" />
                             </Link>
-                            <h2 className=' text-2xl font-extrabold text-black uppercase'>Roknu<span className=' text-red-600'>zz</span>aman</h2>
+                            <h2 className=' text-2xl font-extrabold text-black uppercase'>Re<span className=' text-red-600'>Chart</span>shop</h2>
                         </div>
                         <ul className="menu text-base-content mt-5">
                             {/* Sidebar content here */}

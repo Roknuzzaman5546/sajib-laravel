@@ -37,6 +37,10 @@ Route::get('/upload', function () {
     return Inertia::render('Product/Upload');
 })->middleware('auth')->name('product.upload');
 
+Route::get('/country', function () {
+    return Inertia::render('Product/Upload');
+})->middleware('country');
+
 Route::get('/uploadId/{id}', function ($id) {
     return "this is upload id" . $id;
 });
