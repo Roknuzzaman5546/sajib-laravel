@@ -2,7 +2,7 @@ import { Head } from '@inertiajs/react';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import React from 'react';
 
-const UploadId = ({ auth }) => {
+const Success = ({ auth }) => {
     return (
         <AuthenticatedLayout
             user={auth.user}
@@ -14,4 +14,4 @@ const UploadId = ({ auth }) => {
     );
 };
 
-export default UploadId;
+export default Success;

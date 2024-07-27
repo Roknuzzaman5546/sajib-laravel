@@ -8,7 +8,24 @@ use Inertia\Inertia;
 class UploadController extends Controller
 {
     //
-    public function indexUpload(){
+    public function indexUpload()
+    {
+        return Inertia::render('Product/Upload');
+    }
+    public function productStore(Request $request)
+    {
+        $array = [
+            'sajib',
+            'abir',
+            'azim',
+            'roni',
+            'sohag',
+            'hridoy',
+            'Riyad'
+        ];
+        if (in_array($request->name, $array)) {
+            return Inertia::render('Product/Success');
+        }
         return Inertia::render('Product/Upload');
     }
 }
