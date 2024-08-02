@@ -14,6 +14,7 @@ class UploadController extends Controller
     }
     public function productStore(Request $request)
     {
+        // dd($request->image);
         $array = [
             'sajib',
             'abir',
