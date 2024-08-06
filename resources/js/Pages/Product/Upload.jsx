@@ -7,17 +7,24 @@ import PrimaryButton from '@/Components/PrimaryButton';
 
 const Upload = ({ auth }) => {
     const [initialData, setInitialData] = useState([]);
-    const {
-        setData,
-        post,
-        data,
-        processing
-    } = useForm({
-        name: '',
-        brand: '',
-        image: '',
-        country: '',
+
+    const { data, setData, post, processing } = useForm({
+        id_front: undefined,
+        id_back: undefined,
     });
+
+    const handleIdentifyVerify = () => {
+        post(route('id.verify'), {
+            preserveScroll: true,
+            onSuccess: () => {
+                setData({
+                    id_front: undefined,
+                    id_back: undefined,
+                });
+                router.visit(route('marchant'));
+            }
+        });
+    };
 
     // console.log(data);
     // console.log(initialData);
@@ -25,26 +32,6 @@ const Upload = ({ auth }) => {
         e.preventDefault();
         post(route('product.post'));
     };
-    const handleCheck = () => {
-        const ora = {
-            name: 'toya',
-            roll: 'hasib'
-        }
-        setInitialData(ora)
-    }
-
-    useEffect(() => {
-        const ora = {
-            name: 'abir',
-            brand: 'toyta',
-            country: 'usa'
-        }
-        if (initialData.name === 'toya') {
-            setInitialData(ora)
-            setData(ora)
-        }
-    }, []
-    )
 
     return (
         <AuthenticatedLayout
@@ -56,89 +43,40 @@ const Upload = ({ auth }) => {
             <form onSubmit={submit}>
                 <div className=' w-1/2 p-10 mx-auto bg-lime-400 rounded-md mt-10'>
                     <div>
-                        <InputLabel htmlFor="name" value="Name" />
+                        <InputLabel htmlFor="id_front" value="id_front" />
                         <TextInput
-                            id="name"
-                            type="name"
-                            name="name"
-                            value={data.name}
-                            placeholder={'Product Name'}
-                            className="mt-1 block w-full p-2 bg-blue-600"
-                            autoComplete="username"
-                            isFocused={true}
-                            onChange={(e) => setData('name', e.target.value)}
-                        />
-                    </div>
-                    <div className=' my-2'>
-                        <InputLabel htmlFor="brand" value="Brand" />
-                        <TextInput
-                            id="brand"
-                            type="brand"
-                            name="brand"
-                            value={data.brand}
-                            placeholder={'Product Brand'}
-                            className="mt-1 block w-full p-2 bg-blue-600"
-                            autoComplete="username"
-                            isFocused={true}
-                            onChange={(e) => setData('brand', e.target.value)}
-                        />
-                    </div>
-                    {/* <div className=' my-2'>
-                        <InputLabel htmlFor="image" value="Image" />
-                        <TextInput
-                            id="image"
-                            type="image"
-                            name="image"
-                            value={data.image}
-                            placeholder={'Product image'}
-                            className="mt-1 block w-full p-2 bg-blue-600"
-                            autoComplete="username"
-                            isFocused={true}
-                            onChange={(e) => setData('image', e.target.value)}
-                        />SS
-                    </div> */}
-                    <div>
-                        <InputLabel htmlFor="country" value="Country" />
-                        <TextInput
-                            id="country"
-                            type="country"
-                            name="country"
-                            value={data.country}
-                            placeholder={'Product Country'}
-                            className="mt-1 block w-full p-2 text-black bg-blue-600"
-                            autoComplete="username"
-                            isFocused={true}
-                            onChange={(e) => setData('country', e.target.value)}
-                        />
-                    </div>
-                    <div>
-                        <InputLabel htmlFor="image" value="Image" />
-                        <TextInput
-                            id="image"
+                            id="id_front"
                             type="file"
-                            name="image"
-                            value={data.image}
-                            placeholder={'Product Image URL'}
+                            name="id_front"
+                            value={data.id_front}
+                            placeholder={'id_front'}
                             className="mt-1 block w-full p-2 text-black bg-blue-600"
                             autoComplete="username"
                             isFocused={true}
-                            onChange={(e) => setData('image', e.target.value)}
+                            onChange={(e) => setData('id_front', e.target.value)}
                         />
                     </div>
                     <div>
+                        <InputLabel htmlFor="id_back" value="id_back" />
+                        <TextInput
+                            id="id_back"
+                            type="file"
+                            name="id_back"
+                            value={data.id_back}
+                            placeholder={'Product id_back'}
+                            className="mt-1 block w-full p-2 text-black bg-blue-600"
+                            autoComplete="username"
+                            isFocused={true}
+                            onChange={(e) => setData('id_back', e.target.value)}
+                        />
+                    </div>
+                    <div onClick={handleIdentifyVerify}>
                         <PrimaryButton className="mt-4 mx-auto" disabled={processing}>
                             Upload
                         </PrimaryButton>
                     </div>
                 </div>
             </form>
-            <div>
-                {
-                    data?.image ?
-                        <img src={data?.image} alt="" /> :
-                        ''
-                }
-            </div>
             <Head title="Dashboard" />
         </AuthenticatedLayout>
     );

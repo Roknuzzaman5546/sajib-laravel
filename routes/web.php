@@ -43,6 +43,7 @@ Route::get('/country', function () {
     return Inertia::render('Product/Upload');
 })->middleware('country');
 
+
 Route::get('/uploadId/{id}', function ($id) {
     return "this is upload id" . $id;
 });
@@ -50,6 +51,8 @@ Route::get('/uploadId/{id}', function ($id) {
 Route::middleware('auth')->group(function () {
     Route::get('/upload', [UploadController::class, 'indexUpload'])->name('product.upload');
     Route::post('/upload', [UploadController::class, 'productStore'])->name('product.post');
+    Route::post('/merchant', [UploadController::class, 'id_verify'])->name('marchant');
+
 });
 
 Route::middleware('auth')->group(function () {
