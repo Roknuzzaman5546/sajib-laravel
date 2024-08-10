@@ -25,6 +25,7 @@ export default function Login({ status, canResetPassword }) {
 
         post(route('login'));
     };
+    // console.log(data);
 
     return (
         <GuestLayout>
