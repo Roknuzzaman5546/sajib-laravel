@@ -20,7 +20,7 @@ use Inertia\Inertia;
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),                                
+        'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
@@ -32,6 +32,14 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/home', [FirstController::class, 'index'])->middleware('auth')->name('wallet');
+Route::get('/test', function(Request $request){
+    $request->session()->put('age', '24');
+    // session(['name' => 'sojib']);
+});
+Route::get('/all', function(Request $request){
+    return $request->session()->all();
+});
+
 
 // route direct view by inertia
 // Route::get('/upload', function () {
