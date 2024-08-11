@@ -99,6 +99,9 @@ export default function Authenticated({ user, header, children }) {
                             <NavLink href={route('product.upload')} active={route().current('product.upload')}>
                                 Upload Product
                             </NavLink>
+                            <NavLink href={route('laravel')} active={route().current('laravel')}>
+                                Laravel
+                            </NavLink>
                         </ul>
                     </div>
                 </div>

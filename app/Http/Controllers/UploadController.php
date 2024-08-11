@@ -29,4 +29,9 @@ class UploadController extends Controller
         }
         return redirect()->back()->with('status', 'product updated!');
     }
+
+    public function laravel()
+    {
+        return Inertia::render('Product/Laravel', ['name' => 'Roknuzzaman sajib']);
+    }
 }

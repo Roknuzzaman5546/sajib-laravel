@@ -20,7 +20,7 @@ use Inertia\Inertia;
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
+        'canLogin' => Route::has('login'),                                
         'canRegister' => Route::has('register'),
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
@@ -33,7 +33,7 @@ Route::get('/dashboard', function () {
 
 Route::get('/home', [FirstController::class, 'index'])->middleware('auth')->name('wallet');
 
-// route direct view by inertia 
+// route direct view by inertia
 // Route::get('/upload', function () {
 //     return Inertia::render('Product/Upload');
 // })->middleware('auth')->name('product.upload');
@@ -51,6 +51,7 @@ Route::get('/uploadId/{id}', function ($id) {
 Route::middleware('auth')->group(function () {
     Route::get('/upload', [UploadController::class, 'indexUpload'])->name('product.upload');
     Route::post('/upload', [UploadController::class, 'productStore'])->name('product.post');
+    Route::get('/laravel', [UploadController::class, 'laravel'])->name('laravel');
 });
 
 Route::middleware('auth')->group(function () {

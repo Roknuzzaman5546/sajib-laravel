@@ -1,6 +1,5 @@
 import { Head, useForm } from '@inertiajs/react';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
-import React, { useEffect, useState } from 'react';
 import TextInput from '@/Components/TextInput';
 import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
@@ -24,6 +23,7 @@ const Upload = ({ auth, status }) => {
             user={auth.user}
             header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">Product Upload</h2>}
         >
+            <Head title="Upload" />
             <div>
                 {status && (
                     <div className="alert alert-success">
@@ -84,7 +84,6 @@ const Upload = ({ auth, status }) => {
                     </div>
                 </div>
             </form>
-            <Head title="Dashboard" />
         </AuthenticatedLayout>
     );
 };
