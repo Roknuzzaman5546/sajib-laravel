@@ -96,6 +96,9 @@ export default function Authenticated({ user, header, children }) {
                             <NavLink href={route('wallet')} active={route().current('wallet')}>
                                 Wallet
                             </NavLink>
+                            <NavLink href={route('contact')} active={route().current('contact')}>
+                                Contact
+                            </NavLink>
                             <NavLink href={route('product.upload')} active={route().current('product.upload')}>
                                 Upload Product
                             </NavLink>

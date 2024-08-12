@@ -34,4 +34,8 @@ class UploadController extends Controller
     {
         return Inertia::render('Product/Laravel', ['name' => 'Roknuzzaman sajib']);
     }
+    public function contact()
+    {
+        return Inertia::render('Contact/PostFrom');
+    }
 }

@@ -41,6 +41,7 @@ Route::get('/all', function(Request $request){
 });
 
 
+
 // route direct view by inertia
 // Route::get('/upload', function () {
 //     return Inertia::render('Product/Upload');
@@ -50,6 +51,12 @@ Route::get('/all', function(Request $request){
 Route::get('/country', function () {
     return Inertia::render('Product/Upload');
 })->middleware('country');
+
+
+Route::get('/contact', function () {
+    return Inertia::render('Contact/PostFrom');
+})->middleware(['auth', 'verified'])->name('contact');
+
 
 
 Route::get('/uploadId/{id}', function ($id) {
