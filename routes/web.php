@@ -67,6 +67,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/upload', [UploadController::class, 'indexUpload'])->name('product.upload');
     Route::post('/upload', [UploadController::class, 'productStore'])->name('product.post');
     Route::get('/laravel', [UploadController::class, 'laravel'])->name('laravel');
+    Route::post('/contact', [UploadController::class, 'contactStore'])->name('contact.post');
 });
 
 Route::middleware('auth')->group(function () {

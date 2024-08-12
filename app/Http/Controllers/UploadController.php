@@ -34,8 +34,17 @@ class UploadController extends Controller
     {
         return Inertia::render('Product/Laravel', ['name' => 'Roknuzzaman sajib']);
     }
-    public function contact()
+    public function contactStore(Request $request)
     {
-        return Inertia::render('Contact/PostFrom');
+        $validated = $request->validate([
+            'name' => 'required|max:50',
+            'email' => 'required',
+            'password' => 'required|min:6|max:12',
+        ]);
+        if ($validated) {
+            return Inertia::render('Dashboard');
+        } else {
+            return Inertia::render(route('dashboard'));
+        }
     }
 }
