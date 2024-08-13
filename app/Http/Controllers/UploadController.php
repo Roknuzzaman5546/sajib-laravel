@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Crypt;
 
 class UploadController extends Controller
 {
@@ -43,7 +45,13 @@ class UploadController extends Controller
         ]);
         // database query
         // database store
-        \Log::channel('contactstore')->info('the contact submited by' .rand(0, 20));
+        \Log::channel('contactstore')->info('the contact submited by' . rand(0, 20));
         return redirect()->back();
+    }
+
+    public function storeId($id)
+    {
+        // dd($id);
+        echo Crypt::encryptString($id);
     }
 }

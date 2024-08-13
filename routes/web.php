@@ -6,6 +6,7 @@ use App\Http\Controllers\UploadController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 /*
 |--------------------------------------------------------------------------
@@ -72,6 +73,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/upload', [UploadController::class, 'productStore'])->name('product.post');
     Route::get('/laravel', [UploadController::class, 'laravel'])->name('laravel');
     Route::post('/contact', [UploadController::class, 'contactStore'])->name('contact.post');
+    Route::get('/home/details/{id}', [UploadController::class, 'storeId'])->name('send.id');
 });
 
 Route::middleware('auth')->group(function () {
