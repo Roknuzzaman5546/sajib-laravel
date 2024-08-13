@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Auth;
 
 class UploadController extends Controller
 {
@@ -32,19 +32,18 @@ class UploadController extends Controller
 
     public function laravel()
     {
-        return Inertia::render('Product/Laravel', ['name' => 'Roknuzzaman sajib']);
+        return Inertia::render('Product/Laravel', ['name' => Auth::user()]);
     }
     public function contactStore(Request $request)
     {
         $validated = $request->validate([
             'name' => 'required|max:50',
-            'email' => 'required',
+            'email' => 'required|email',
             'password' => 'required|min:6|max:12',
         ]);
-        if ($validated) {
-            return Inertia::render('Dashboard');
-        } else {
-            return Inertia::render(route('dashboard'));
-        }
+        // database query
+        // database store
+        \Log::channel('contactstore')->info('the contact submited by' .rand(0, 20));
+        return redirect()->back();
     }
 }

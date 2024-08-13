@@ -47,10 +47,14 @@ Route::get('/all', function(Request $request){
 //     return Inertia::render('Product/Upload');
 // })->middleware('auth')->name('product.upload');
 
-
 Route::get('/country', function () {
-    return Inertia::render('Product/Upload');
-})->middleware('country');
+    $logfile=file(storage_path().'/logs/contact.log');
+    $collection=[];
+    foreach($logfile as $line_number => $line){
+        $collection[]=array('line' => $line_number, 'content' => htmlspecialchars($line));
+    }
+    dd($collection);
+});
 
 
 Route::get('/contact', function () {

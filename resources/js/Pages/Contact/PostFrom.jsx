@@ -25,6 +25,7 @@ const PostFrom = ({ auth }) => {
             header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">Product Upload</h2>}
         >
             <Head title="Laravel" />
+            <h2 className=' text-2xl my-8'>This page is PostFrom page</h2>
             <form onSubmit={submit}>
                 <div className=' w-1/2 p-10 mx-auto bg-lime-400 rounded-md mt-10'>
                     <div>
