@@ -47,24 +47,16 @@ export default function Authenticated({ user, header, children }) {
                                                 Profile
                                             </span>
                                         </NavLink>
-                                        <NavLink
+                                        <Link
                                             href={route('password.change')}
                                             active={route().current('password.change')}
+                                            className="flex items-center gap-1 hover:bg-[#EDEFF1] px-2 py-1 rounded-lg mt-1"
                                         >
-                                            <img src="/assets/profile-drop.png" className='w-[14.5px] h-[14.5px]' alt="dashbord icons" />
+                                            <img src="/assets/sign-out-drop.png" className='w-[14.5px] h-[14.5px]' alt="dashbord icons" />
                                             <span className='text-sm font-normal'>
-                                                Change Password
+                                                Change password
                                             </span>
-                                        </NavLink>
-                                        <NavLink
-                                            href={route('profile.edit')}
-                                            active={route().current('profile.edit')}
-                                        >
-                                            <img src="/assets/profile-drop.png" className='w-[14.5px] h-[14.5px]' alt="dashbord icons" />
-                                            <span className='text-sm font-normal'>
-                                                Profile
-                                            </span>
-                                        </NavLink>
+                                        </Link>
                                         <Link
                                             className="flex justify-between items-center gap-2 px-2 py-1 rounded-lg mt-1"
                                         >

@@ -76,6 +76,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/contact', [UploadController::class, 'contactStore'])->name('contact.post');
     Route::get('/home/details/{id}', [UploadController::class, 'storeId'])->name('send.id');
     Route::get('/password/change', [PasswordController::class, 'passwordChange'])->name('password.change');
+    Route::put('/password/change', [PasswordController::class, 'passwordUpdate'])->name('password.update');
 });
 
 Route::middleware('auth')->group(function () {
