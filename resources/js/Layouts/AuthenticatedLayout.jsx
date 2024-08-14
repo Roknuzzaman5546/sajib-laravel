@@ -47,6 +47,24 @@ export default function Authenticated({ user, header, children }) {
                                                 Profile
                                             </span>
                                         </NavLink>
+                                        <NavLink
+                                            href={route('password.change')}
+                                            active={route().current('password.change')}
+                                        >
+                                            <img src="/assets/profile-drop.png" className='w-[14.5px] h-[14.5px]' alt="dashbord icons" />
+                                            <span className='text-sm font-normal'>
+                                                Change Password
+                                            </span>
+                                        </NavLink>
+                                        <NavLink
+                                            href={route('profile.edit')}
+                                            active={route().current('profile.edit')}
+                                        >
+                                            <img src="/assets/profile-drop.png" className='w-[14.5px] h-[14.5px]' alt="dashbord icons" />
+                                            <span className='text-sm font-normal'>
+                                                Profile
+                                            </span>
+                                        </NavLink>
                                         <Link
                                             className="flex justify-between items-center gap-2 px-2 py-1 rounded-lg mt-1"
                                         >
