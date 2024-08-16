@@ -14,6 +14,7 @@ export const Laravel = ({ auth, name }) => {
                 <li><span className=' font-bold'>Id:</span> {name?.id}</li>
                 <li><span className=' font-bold'>Name:</span> {name?.name}</li>
                 <li><span className=' font-bold'>Email:</span> {name?.email}</li>
+                <li><span className=' font-bold'>Phone Number:</span> {name?.phone}</li>
             </ul>
         </AuthenticatedLayout>
     )
