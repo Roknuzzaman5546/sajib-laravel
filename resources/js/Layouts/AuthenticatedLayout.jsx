@@ -113,7 +113,7 @@ export default function Authenticated({ user, header, children }) {
                                 Upload Product
                             </NavLink>
                             <NavLink href={route('laravel')} active={route().current('laravel')}>
-                                Laravel
+                                Laravel Query
                             </NavLink>
                             <NavLink href={route('about.us')} active={route().current('about.us')}>
                                 About US
