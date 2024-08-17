@@ -11,7 +11,7 @@ const Wallet = ({ auth }) => {
             <Head title="Wallet" />
             <div className='ml-5 mt-5'>
                 <h2>This is Wallet page</h2>
-                <button className='btn ml-5 mt-2'> <a href={route('send.id', '1')}>Submit</a> </button>
+                <button className='btn ml-5 mt-2'> <a href={route('send.id', '3')}>Submit</a> </button>
             </div>
         </AuthenticatedLayout>
     );
