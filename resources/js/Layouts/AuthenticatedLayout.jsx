@@ -115,6 +115,9 @@ export default function Authenticated({ user, header, children }) {
                             <NavLink href={route('laravel')} active={route().current('laravel')}>
                                 Laravel
                             </NavLink>
+                            <NavLink href={route('about.us')} active={route().current('about.us')}>
+                                About US
+                            </NavLink>
                         </ul>
                     </div>
                 </div>

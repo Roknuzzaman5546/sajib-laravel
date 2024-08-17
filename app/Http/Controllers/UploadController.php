@@ -54,4 +54,8 @@ class UploadController extends Controller
         // dd($id);
         echo Crypt::encryptString($id);
     }
+
+    public function aboutIndex(){
+        return Inertia::render('Product/AboutUs');
+    }
 }

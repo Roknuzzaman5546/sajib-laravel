@@ -74,6 +74,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/upload', [UploadController::class, 'productStore'])->name('product.post');
     Route::get('/laravel', [UploadController::class, 'laravel'])->name('laravel');
     Route::post('/contact', [UploadController::class, 'contactStore'])->name('contact.post');
+    Route::post('/contact', [UploadController::class, 'contactStore'])->name('contact.post');
+    Route::get('/About', [UploadController::class, 'aboutIndex'])->name('about.us');
     Route::get('/home/details/{id}', [UploadController::class, 'storeId'])->name('send.id');
     Route::get('/password/change', [PassController::class, 'passwordChange'])->name('password.change');
     Route::put('/password/change', [PassController::class, 'passwordUpdate'])->name('password.update');
