@@ -2,7 +2,7 @@ import React from 'react'
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
 
-export const Laravel = ({ auth, name }) => {
+export const Laravel = ({ auth }) => {
     return (
         <AuthenticatedLayout
             user={auth.user}
