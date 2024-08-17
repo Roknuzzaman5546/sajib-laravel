@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Example\FirstController;
-use App\Http\Controllers\PasswordController;
+use App\Http\Controllers\PassController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UploadController;
 use Illuminate\Foundation\Application;
@@ -75,8 +75,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/laravel', [UploadController::class, 'laravel'])->name('laravel');
     Route::post('/contact', [UploadController::class, 'contactStore'])->name('contact.post');
     Route::get('/home/details/{id}', [UploadController::class, 'storeId'])->name('send.id');
-    Route::get('/password/change', [PasswordController::class, 'passwordChange'])->name('password.change');
-    Route::put('/password/change', [PasswordController::class, 'passwordUpdate'])->name('password.update');
+    Route::get('/password/change', [PassController::class, 'passwordChange'])->name('password.change');
+    Route::put('/password/change', [PassController::class, 'passwordUpdate'])->name('password.update');
 });
 
 Route::middleware('auth')->group(function () {

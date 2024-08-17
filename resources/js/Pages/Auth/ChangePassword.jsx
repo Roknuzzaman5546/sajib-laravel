@@ -23,7 +23,7 @@ const ChangePassword = ({ auth }) => {
                 Swal.fire({
                     position: "top-end",
                     icon: "success",
-                    title: "Your work has been saved",
+                    title: "Your Password changed",
                     showConfirmButton: false,
                     timer: 1500
                 });
@@ -49,7 +49,7 @@ const ChangePassword = ({ auth }) => {
             header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">Wallet</h2>}
         >
             <Head title="Wallet" />
-            <h2 className=' text-gray-600 mt-3 text-center text-2xl font-semibold'>Hey {auth.user.name} Change your name</h2>
+            <h2 className=' text-gray-600 mt-3 text-center text-2xl font-semibold'>Hey {auth.user.name} Change your Password</h2>
             {
                 sucsess ?
                     <h2>password change successfully</h2> : ""

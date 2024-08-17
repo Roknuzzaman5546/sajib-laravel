@@ -7,7 +7,7 @@ use Inertia\Inertia;
 use Auth;
 use Hash;
 
-class PasswordController extends Controller
+class PassController extends Controller
 {
     public function passwordChange()
     {
@@ -33,5 +33,4 @@ class PasswordController extends Controller
 
 
     }
-    //
 }
