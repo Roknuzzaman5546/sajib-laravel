@@ -29,7 +29,7 @@ const Wallet = ({ auth, dataClass }) => {
                                         <td className='px-3 py-4'>{item.id}</td>
                                         <td className='px-3 py-4'>{item.classes_name}</td>
                                         <td className='px-3 py-4'>{item.email}</td>
-                                        <td className='px-3 py-4 btn btn-success'><a href={route('class.updateRoute')}>Edit</a></td>
+                                        <td className='px-3 py-4 btn btn-success'><a href={route('class.updateRoute', item.id)}>Edit</a></td>
                                         <td className='px-3 py-4 btn btn-info'><a href={route('class.delte', item.id)}>Delete</a></td>
                                     </tr>
                                 ))

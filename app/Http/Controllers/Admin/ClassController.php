@@ -40,4 +40,11 @@ class ClassController extends Controller
         return redirect()->back();
     }
 
+    public function updateRoute($id)
+    {
+        $data = DB::table('classes')->where('id', $id)->first();
+        // dd($data);
+        return Inertia::render('Product/EditClass', ['editData' => $data]);
+    }
+
 }

@@ -86,6 +86,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/Class/creat', [ClassController::class, 'creat'])->name('class.creat');
     Route::post('/Class/store', [ClassController::class, 'store'])->name('class.store');
     Route::get('/Class/distroy/{id}', [ClassController::class, 'distroy'])->name('class.delte');
+    Route::get('/Class/UpdateRoute/{id}', [ClassController::class, 'updateRoute'])->name('class.updateRoute');
 });
 
 Route::middleware('auth')->group(function () {
