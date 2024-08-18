@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
 const AddClass = ({ auth }) => {
 
     const { data, setData, processing, errors, post } = useForm({
-        name: undefined,
+        classes_name: undefined,
         email: undefined,
     });
 
@@ -32,7 +32,7 @@ const AddClass = ({ auth }) => {
                 if (errors) {
                     Swal.fire({
                         title: 'Error!',
-                        text: { errors },
+                        text: errors.classes_name ? errors.classes_name : errors.email,
                         icon: 'error',
                         confirmButtonText: 'Cool'
                     })
@@ -51,19 +51,19 @@ const AddClass = ({ auth }) => {
             <form onSubmit={submit}>
                 <div className=' w-1/2 p-10 mx-auto bg-lime-400 rounded-md mt-10'>
                     <div>
-                        <InputLabel htmlFor="name" value="Name" />
+                        <InputLabel htmlFor="classes_name" value="Name" />
                         <TextInput
-                            id="name"
+                            id="classes_name"
                             type="text"
-                            name="name"
-                            value={data.name}
+                            name="classes_name"
+                            value={data.classes_name}
                             placeholder={'Class Name'}
                             className="mt-1 block w-full p-2 text-black bg-blue-600"
-                            autoComplete="name"
+                            autoComplete="classes_name"
                             isFocused={true}
-                            onChange={(e) => setData('name', e.target.value)}
+                            onChange={(e) => setData('classes_name', e.target.value)}
                         />
-                        <InputError message={errors.name} className="mt-2" />
+                        <InputError message={errors.classes_name} className="mt-2" />
                     </div>
                     <div className=' my-2'>
                         <InputLabel htmlFor="email" value="Email" />

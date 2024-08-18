@@ -85,12 +85,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/class', [ClassController::class, 'index'])->name('class');
     Route::get('/Class/creat', [ClassController::class, 'creat'])->name('class.creat');
     Route::post('/Class/store', [ClassController::class, 'store'])->name('class.store');
+    Route::delete('/Class/distroy/{id}', [ClassController::class, 'distroy'])->name('class.delte');
 });
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
 

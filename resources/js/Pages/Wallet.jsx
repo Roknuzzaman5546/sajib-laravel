@@ -18,6 +18,8 @@ const Wallet = ({ auth, dataClass }) => {
                                 <th className='px-3 py-4'>Id</th>
                                 <th className='px-3 py-4'>Class</th>
                                 <th className='px-3 py-4'>Email</th>
+                                <th></th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -25,10 +27,10 @@ const Wallet = ({ auth, dataClass }) => {
                                 dataClass?.map((item) => (
                                     <tr key={item.id} className='text-left p-4 border-dotted border-b border-[#919EAB]'>
                                         <td className='px-3 py-4'>{item.id}</td>
-                                        <td className='px-3 py-4'>{item.class}</td>
+                                        <td className='px-3 py-4'>{item.classes_name}</td>
                                         <td className='px-3 py-4'>{item.email}</td>
-                                        <td className='px-3 py-4'>Edit</td>
-                                        <td className='px-3 py-4'>Delete</td>
+                                        <td className='px-3 py-4 btn btn-success'>Edit</td>
+                                        <td className='px-3 py-4 btn btn-info'><a href={route('class.delte', item.id)}>Delete</a></td>
                                     </tr>
                                 ))
                             }

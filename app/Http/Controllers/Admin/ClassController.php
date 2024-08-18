@@ -12,7 +12,8 @@ class ClassController extends Controller
     public function index()
     {
         $dataClass = DB::table('classes')->get();
-        return Inertia::render('Wallet', compact('dataClass'));
+        // dd($dataClass);
+        return Inertia::render('Wallet', ['dataClass' => $dataClass]);
     }
     public function creat()
     {
@@ -22,14 +23,20 @@ class ClassController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
-            'email' => 'required',
+            'classes_name' => 'required|unique:classes',
+            'email' => 'required|unique:classes',
         ]);
         $data = array(
-            'classes_name' => $request->name,
+            'classes_name' => $request->classes_name,
             'email' => $request->email
         );
         DB::table('classes')->insert($data);
+        return redirect()->back();
+    }
+
+    public function distroy($id)
+    {
+        DB::table('classes')->where('id', $id)->delete();
         return redirect()->back();
     }
 
