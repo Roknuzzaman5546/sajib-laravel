@@ -5,6 +5,7 @@ import PrimaryButton from '@/Components/PrimaryButton';
 import InputError from '@/Components/InputError';
 import TextInput from '@/Components/TextInput';
 import InputLabel from '@/Components/InputLabel';
+import Swal from 'sweetalert2';
 
 const EditClass = ({auth, editData}) => {
     // console.log(editData);
@@ -16,7 +17,7 @@ const EditClass = ({auth, editData}) => {
 
     const submit = (e) => {
         e.preventDefault();
-        post(route('class.store'), {
+        post(route('class.update', editData?.id), {
             preserveScroll: true,
             onSuccess: () => {
                 Swal.fire({
@@ -47,7 +48,7 @@ const EditClass = ({auth, editData}) => {
             header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">Class edit</h2>}
         >
             <Head title="Edit" />
-            <h2 className=' text-2xl text-center font-semibold mt-2'>This is AddClass page here we can class add</h2>
+            <h2 className=' text-2xl text-center font-semibold mt-2'>This is {editData.classes_name} page here you can class Update</h2>
             <form onSubmit={submit}>
                 <div className=' w-1/2 p-10 mx-auto bg-lime-400 rounded-md mt-10'>
                     <div>

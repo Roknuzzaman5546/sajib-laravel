@@ -46,5 +46,18 @@ class ClassController extends Controller
         // dd($data);
         return Inertia::render('Product/EditClass', ['editData' => $data]);
     }
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'classes_name' => 'required',
+            'email' => 'required',
+        ]);
+        $data = array(
+            'classes_name' => $request->classes_name,
+            'email' => $request->email
+        );
+        DB::table('classes')->where('id', $id)->update($data);
+        return redirect()->back();
+    }
 
 }
