@@ -77,10 +77,14 @@ Route::middleware('auth')->group(function () {
     Route::post('/contact', [UploadController::class, 'contactStore'])->name('contact.post');
     Route::post('/contact', [UploadController::class, 'contactStore'])->name('contact.post');
     Route::get('/About', [UploadController::class, 'aboutIndex'])->name('about.us');
-    Route::get('/class', [ClassController::class, 'index'])->name('class');
     Route::get('/home/details/{id}', [UploadController::class, 'storeId'])->name('send.id');
+
     Route::get('/password/change', [PassController::class, 'passwordChange'])->name('password.change');
     Route::put('/password/change', [PassController::class, 'passwordUpdate'])->name('password.update');
+
+    Route::get('/class', [ClassController::class, 'index'])->name('class');
+    Route::get('/Class/creat', [ClassController::class, 'creat'])->name('class.creat');
+    Route::post('/Class/store', [ClassController::class, 'creat'])->name('class.store');
 });
 
 Route::middleware('auth')->group(function () {

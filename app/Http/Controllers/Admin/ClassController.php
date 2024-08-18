@@ -9,8 +9,15 @@ use Inertia\Inertia;
 
 class ClassController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $dataClass = DB::table('classes')->get();
         return Inertia::render('Wallet', compact('dataClass'));
     }
+    public function creat()
+    {
+        return Inertia::render('Product/AddClass');
+
+    }
+
 }
