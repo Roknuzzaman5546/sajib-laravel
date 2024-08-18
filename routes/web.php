@@ -84,7 +84,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/class', [ClassController::class, 'index'])->name('class');
     Route::get('/Class/creat', [ClassController::class, 'creat'])->name('class.creat');
-    Route::post('/Class/store', [ClassController::class, 'creat'])->name('class.store');
+    Route::post('/Class/store', [ClassController::class, 'store'])->name('class.store');
 });
 
 Route::middleware('auth')->group(function () {

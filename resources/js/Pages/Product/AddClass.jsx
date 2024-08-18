@@ -5,34 +5,34 @@ import PrimaryButton from '@/Components/PrimaryButton';
 import InputError from '@/Components/InputError';
 import TextInput from '@/Components/TextInput';
 import InputLabel from '@/Components/InputLabel';
+import Swal from 'sweetalert2';
 
 const AddClass = ({ auth }) => {
 
-    const { data, setData, processing, errors, put, sucsess } = useForm({
+    const { data, setData, processing, errors, post } = useForm({
         name: undefined,
         email: undefined,
     });
 
     const submit = (e) => {
         e.preventDefault();
-        put(route('class.store'), {
+        post(route('class.store'), {
             preserveScroll: true,
             onSuccess: () => {
                 Swal.fire({
                     position: "top-end",
                     icon: "success",
-                    title: "Your Password changed",
+                    title: "Your data is post",
                     showConfirmButton: false,
-                    timer: 1500
+                    timer: 2000
                 });
-                router.visit(route('dashboard'))
             },
             onError: (errors) => {
                 console.log(errors)
                 if (errors) {
                     Swal.fire({
                         title: 'Error!',
-                        text: {errors},
+                        text: { errors },
                         icon: 'error',
                         confirmButtonText: 'Cool'
                     })

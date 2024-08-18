@@ -17,7 +17,20 @@ class ClassController extends Controller
     public function creat()
     {
         return Inertia::render('Product/AddClass');
+    }
 
+    public function store(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+        ]);
+        $data = array(
+            'classes_name' => $request->name,
+            'email' => $request->email
+        );
+        DB::table('classes')->insert($data);
+        return redirect()->back();
     }
 
 }
