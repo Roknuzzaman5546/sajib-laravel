@@ -44,13 +44,6 @@ Route::get('/all', function (Request $request) {
     return $request->session()->all();
 });
 
-
-
-// route direct view by inertia
-// Route::get('/upload', function () {
-//     return Inertia::render('Product/Upload');
-// })->middleware('auth')->name('product.upload');
-
 Route::get('/country', function () {
     $logfile = file(storage_path() . '/logs/contact.log');
     $collection = [];

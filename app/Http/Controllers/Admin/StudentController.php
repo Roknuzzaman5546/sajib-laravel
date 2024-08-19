@@ -14,9 +14,9 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $dataClass = DB::table('classes')->get();
-        // dd($dataClass);
-        return Inertia::render('Wallet', ['dataClass' => $dataClass]);
+        $dataStudents = DB::table('students')->get();
+        // dd($dataStudents);
+        return Inertia::render('Students/AllStudents', ['dataStudents' => $dataStudents]);
     }
 
     /**
@@ -24,7 +24,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('Students/StudentsCreate');
     }
 
     /**
