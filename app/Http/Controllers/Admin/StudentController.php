@@ -24,7 +24,8 @@ class StudentController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Students/StudentsCreate');
+        $dataClasses = DB::table('classes')->get();
+        return Inertia::render('Students/StudentsCreate', ['dataClasses' => $dataClasses]);
     }
 
     /**
