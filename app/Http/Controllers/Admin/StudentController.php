@@ -80,6 +80,7 @@ class StudentController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        DB::table('students')->where('id', $id)->delete();
+        return redirect()->route('students.index')->with('success', 'Student deleted successfully.');
     }
 }

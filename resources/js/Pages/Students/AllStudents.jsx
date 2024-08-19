@@ -1,9 +1,36 @@
 import React from 'react'
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
-import { Head } from '@inertiajs/react';
+import { Head, useForm } from '@inertiajs/react';
+import Swal from 'sweetalert2';
 
-const AllStudents = ({auth, dataStudents}) => {
-    console.log(dataStudents)
+const AllStudents = ({ auth, dataStudents }) => {
+    // console.log(dataStudents)
+
+    const { delete: destroy, processing } = useForm();
+
+    const handleDelete = (id) => {
+        destroy(route('students.destroy', id), {
+            preserveScroll: true,
+            onSuccess: () => {
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Student deleted successfully",
+                    showConfirmButton: false,
+                    timer: 2000
+                });
+            },
+            onError: (errors) => {
+                console.log(errors);
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'An error occurred while deleting the student.',
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
+            },
+        });
+    };
     return (
         <AuthenticatedLayout
             user={auth.user}
@@ -28,12 +55,12 @@ const AllStudents = ({auth, dataStudents}) => {
                                 dataStudents?.map((item) => (
                                     <tr key={item.id} className='text-left p-4 border-dotted border-b border-[#919EAB]'>
                                         <td className='px-3 py-4'>{item.id}</td>
-                                        <td className='px-3 py-4'>{item.classes_id}</td>
+                                        <td className='px-3 py-4'>{item.class_id}</td>
                                         <td className='px-3 py-4'>{item.name}</td>
                                         <td className='px-3 py-4'>{item.roll}</td>
                                         <td className='px-3 py-4'>{item.email}</td>
                                         <td className='px-3 py-4 btn btn-success'><a href={route('class.updateRoute', item.id)}>Edit</a></td>
-                                        <td className='px-3 py-4 btn btn-info'><a href={route('class.delte', item.id)}>Delete</a></td>
+                                        <td className='px-3 py-4 btn btn-info' onClick={() => handleDelete(item.id)}><a>Delete</a></td>
                                     </tr>
                                 ))
                             }
