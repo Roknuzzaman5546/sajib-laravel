@@ -8,10 +8,11 @@ import InputError from '@/Components/InputError';
 import PrimaryButton from '@/Components/PrimaryButton';
 
 const StudentsCreate = ({ auth, dataClasses }) => {
+    // console.log(dataClasses);
     const { data, setData, processing, errors, post } = useForm({
         name: undefined,
+        class_id: undefined,
         email: undefined,
-        class_id : undefined,
         phone: undefined,
         roll: undefined
     });
@@ -66,19 +67,19 @@ const StudentsCreate = ({ auth, dataClasses }) => {
                         />
                         <InputError message={errors.name} className="mt-2" />
                     </div>
-                    <InputLabel htmlFor="name" value="Name" />
-                    <select className="select select-bordered w-full max-w-xs mt-1 block p-2 text-black bg-blue-600">
-                        {
-                            dataClasses.map((item, key) => (
-                                <div key={key}>
-                                    <option value={data.class_id} onChange={setData('class_id ', item.id)}>{item.classes_name}</option>
-                                </div>
-                            ))
-                        }
-                        <option disabled selected>Who shot first?</option>
-                        <option>Han Solo</option>
-                        <option>Greedo</option>
+                    <InputLabel htmlFor="name" value="Which class" />
+                    <select
+                        className="select select-bordered w-full max-w-xs mt-1 block p-2 text-black bg-blue-600"
+                        onChange={(e) => setData('class_id', e.target.value)} 
+                    >
+                        <option disabled selected>Select Class</option>
+                        {dataClasses.map((item) => (
+                            <option key={item.id} value={item.id}>
+                                {item.classes_name}
+                            </option>
+                        ))}
                     </select>
+
                     <div className=' my-2'>
                         <InputLabel htmlFor="email" value="Email" />
                         <TextInput
