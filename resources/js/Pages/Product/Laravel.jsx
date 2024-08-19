@@ -13,7 +13,7 @@ export const Laravel = ({ auth }) => {
                 <button className=' btn btn-neutral w-full'><a href={route('class.creat')}>Add class</a></button>
                 <div className=' text-center'>
                     <button className=' btn mr-2 mt-2 btn-primary'><a href={route('class')}>Class</a></button>
-                    <button className=' btn btn-error'><a href="">Student</a></button>
+                    <button className=' btn btn-error'><a href={route('students.index')}>Student</a></button>
                 </div>
             </div>
         </AuthenticatedLayout>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\ClassController;
+use App\Http\Controllers\Admin\StudentController;
 use App\Http\Controllers\Example\FirstController;
 use App\Http\Controllers\PassController;
 use App\Http\Controllers\ProfileController;
@@ -35,11 +36,11 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/home', [FirstController::class, 'index'])->middleware('auth')->name('wallet');
-Route::get('/test', function(Request $request){
+Route::get('/test', function (Request $request) {
     $request->session()->put('age', '24');
     // session(['name' => 'sojib']);
 });
-Route::get('/all', function(Request $request){
+Route::get('/all', function (Request $request) {
     return $request->session()->all();
 });
 
@@ -51,10 +52,10 @@ Route::get('/all', function(Request $request){
 // })->middleware('auth')->name('product.upload');
 
 Route::get('/country', function () {
-    $logfile=file(storage_path().'/logs/contact.log');
-    $collection=[];
-    foreach($logfile as $line_number => $line){
-        $collection[]=array('line' => $line_number, 'content' => htmlspecialchars($line));
+    $logfile = file(storage_path() . '/logs/contact.log');
+    $collection = [];
+    foreach ($logfile as $line_number => $line) {
+        $collection[] = array('line' => $line_number, 'content' => htmlspecialchars($line));
     }
     dd($collection);
 });
@@ -88,6 +89,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/Class/distroy/{id}', [ClassController::class, 'distroy'])->name('class.delte');
     Route::get('/Class/updateRoute/{id}', [ClassController::class, 'updateRoute'])->name('class.updateRoute');
     Route::post('/Class/update/{id}', [ClassController::class, 'update'])->name('class.update');
+
+    Route::resource('students', StudentController::class);
+
 });
 
 Route::middleware('auth')->group(function () {

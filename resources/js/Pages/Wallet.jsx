@@ -3,7 +3,7 @@ import { Head } from '@inertiajs/react';
 import React from 'react';
 
 const Wallet = ({ auth, dataClass }) => {
-    console.log(dataClass);
+    // console.log(dataClass);
     return (
         <AuthenticatedLayout
             user={auth.user}
