@@ -48,7 +48,7 @@ class StudentController extends Controller
             'phone' => $request->phone
         );
         DB::table('students')->insert($data);
-        return redirect()->back();
+        return redirect()->route('students.create')->with('success', 'Student updated successfully.');
     }
 
     /**

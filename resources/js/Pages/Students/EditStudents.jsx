@@ -57,7 +57,7 @@ const EditStudents = ({ auth, dataStudents, dataClasses }) => {
                             id="name"
                             type="text"
                             name="name"
-                            value={data.name}
+                            value={dataStudents.name}
                             placeholder={'Class Name'}
                             className="mt-1 block w-full p-2 text-black bg-blue-600"
                             autoComplete="name"
@@ -71,13 +71,17 @@ const EditStudents = ({ auth, dataStudents, dataClasses }) => {
                         className="select select-bordered w-full max-w-xs mt-1 block p-2 text-black bg-blue-600"
                         onChange={(e) => setData('class_id', e.target.value)}
                     >
-                        <option disabled selected>Select Class</option>
                         {dataClasses.map((item) => (
-                            <option key={item.id} value={item.id}>
+                            <option
+                                key={item.id}
+                                value={item.id}
+                                selected={dataStudents.class_id === item.id}
+                            >
                                 {item.classes_name}
                             </option>
                         ))}
                     </select>
+
 
                     <div className=' my-2'>
                         <InputLabel htmlFor="email" value="Email" />
@@ -85,7 +89,7 @@ const EditStudents = ({ auth, dataStudents, dataClasses }) => {
                             id="email"
                             type="text"
                             name="email"
-                            value={data.email}
+                            value={dataStudents.email}
                             placeholder={'Your email'}
                             className="mt-1 block w-full p-2 text-black bg-blue-600"
                             autoComplete="email"
@@ -100,7 +104,7 @@ const EditStudents = ({ auth, dataStudents, dataClasses }) => {
                             id="roll"
                             type="text"
                             name="roll"
-                            value={data.roll}
+                            value={dataStudents.roll}
                             placeholder={'Your roll'}
                             className="mt-1 block w-full p-2 text-black bg-blue-600"
                             autoComplete="roll"
@@ -115,7 +119,7 @@ const EditStudents = ({ auth, dataStudents, dataClasses }) => {
                             id="phone"
                             type="text"
                             name="phone"
-                            value={data.phone}
+                            value={dataStudents.phone}
                             placeholder={'Your phone'}
                             className="mt-1 block w-full p-2 text-black bg-blue-600"
                             autoComplete="phone"
