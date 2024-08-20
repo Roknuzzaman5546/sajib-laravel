@@ -8,7 +8,7 @@ import InputLabel from '@/Components/InputLabel';
 import Swal from 'sweetalert2';
 
 const EditStudents = ({ auth, dataStudents, dataClasses }) => {
-    const { data, setData, processing, errors, patch } = useForm({
+    const { data, setData, processing, errors, patch  } = useForm({
         name: undefined,
         class_id: undefined,
         email: undefined,
@@ -28,6 +28,7 @@ const EditStudents = ({ auth, dataStudents, dataClasses }) => {
                     showConfirmButton: false,
                     timer: 2000
                 });
+                // reset();
             },
             onError: (errors) => {
                 console.log(errors)
