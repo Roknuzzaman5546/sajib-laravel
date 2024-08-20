@@ -59,7 +59,7 @@ const AllStudents = ({ auth, dataStudents }) => {
                                         <td className='px-3 py-4'>{item.name}</td>
                                         <td className='px-3 py-4'>{item.roll}</td>
                                         <td className='px-3 py-4'>{item.email}</td>
-                                        <td className='px-3 py-4 btn btn-success'><a href={route('class.updateRoute', item.id)}>Edit</a></td>
+                                        <td className='px-3 py-4 btn btn-success'><a href={route('students.edit', item.id)}>Edit</a></td>
                                         <td className='px-3 py-4 btn btn-info' onClick={() => handleDelete(item.id)}><a>Delete</a></td>
                                     </tr>
                                 ))

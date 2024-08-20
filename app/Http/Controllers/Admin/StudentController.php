@@ -64,7 +64,10 @@ class StudentController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $data = DB::table('students')->where('id', $id)->first();
+        $dataClasses = DB::table('classes')->get();
+        // dd($data);
+        return Inertia::render('Students/EditStudents', ['dataStudents' => $data, 'dataClasses' => $dataClasses]);
     }
 
     /**
@@ -72,7 +75,22 @@ class StudentController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'class_id' => 'required',
+            'email' => 'required',
+            'roll' => 'required',
+            'phone' => 'required',
+        ]);
+        $data = array(
+            'name' => $request->name,
+            'class_id' => $request->class_id,
+            'email' => $request->email,
+            'roll' => $request->roll,
+            'phone' => $request->phone
+        );
+        DB::table('students')->where('id', $id)->update($data);
+        return redirect()->route('students.index')->with('success', 'Student updated successfully.');
     }
 
     /**
