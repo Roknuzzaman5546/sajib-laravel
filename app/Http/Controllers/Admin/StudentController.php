@@ -14,8 +14,15 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $dataStudents = DB::table('students')->get();
-        // dd($dataStudents);
+        $dataStudents = DB::table('students')->join('classes', 'students.class_id', 'classes.id')->get();
+        // $first = DB::table('students')
+        //     ->whereNull('name');
+
+        // $users = DB::table('students')
+        //     ->whereNull('email')
+        //     ->union($first)
+        //     ->get();
+        // return response()->json($users);
         return Inertia::render('Students/AllStudents', ['dataStudents' => $dataStudents]);
     }
 
