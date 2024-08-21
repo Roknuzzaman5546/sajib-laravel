@@ -58,7 +58,8 @@ const EditStudents = ({ auth, dataStudents, dataClasses }) => {
                             id="name"
                             type="text"
                             name="name"
-                            value={dataStudents.name}
+                            value={data.name}
+                            defaultValue={dataStudents.name}
                             placeholder={'Class Name'}
                             className="mt-1 block w-full p-2 text-black bg-blue-600"
                             autoComplete="name"
@@ -76,8 +77,8 @@ const EditStudents = ({ auth, dataStudents, dataClasses }) => {
                             <option
                                 key={item.id}
                                 value={item.id}
-                                selected={dataStudents.class_id === item.id}
-                            >
+                                selected={data.class_id === item.id}
+                            >ft
                                 {item.classes_name}
                             </option>
                         ))}
@@ -90,7 +91,8 @@ const EditStudents = ({ auth, dataStudents, dataClasses }) => {
                             id="email"
                             type="text"
                             name="email"
-                            value={dataStudents.email}
+                            value={data.email}
+                            defaultValue={dataStudents.email}
                             placeholder={'Your email'}
                             className="mt-1 block w-full p-2 text-black bg-blue-600"
                             autoComplete="email"
@@ -105,7 +107,8 @@ const EditStudents = ({ auth, dataStudents, dataClasses }) => {
                             id="roll"
                             type="text"
                             name="roll"
-                            value={dataStudents.roll}
+                            value={data.roll}
+                            defaultValue={dataStudents.roll}
                             placeholder={'Your roll'}
                             className="mt-1 block w-full p-2 text-black bg-blue-600"
                             autoComplete="roll"
@@ -120,7 +123,8 @@ const EditStudents = ({ auth, dataStudents, dataClasses }) => {
                             id="phone"
                             type="text"
                             name="phone"
-                            value={dataStudents.phone}
+                            value={data.phone}
+                            defaultValue={dataStudents.phone}
                             placeholder={'Your phone'}
                             className="mt-1 block w-full p-2 text-black bg-blue-600"
                             autoComplete="phone"

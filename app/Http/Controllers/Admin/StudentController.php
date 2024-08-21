@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use DB;
 use Inertia\Inertia;
+use DB;
 
 class StudentController extends Controller
 {
@@ -56,7 +56,10 @@ class StudentController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $user = DB::table('students')->where('id', $id)->first();
+        $users = DB::table('students')->max('phone');
+        dd($users);
+        return Inertia::render('Students/SingleStudent', ['dataStudent' => $user]);
     }
 
     /**
