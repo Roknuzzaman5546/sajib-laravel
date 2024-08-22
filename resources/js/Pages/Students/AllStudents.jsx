@@ -52,7 +52,7 @@ const AllStudents = ({ auth, dataStudents }) => {
                         </thead>
                         <tbody>
                             {
-                                dataStudents?.map((item) => (
+                                dataStudents?.data?.map((item) => (
                                     <tr key={item.id} className='text-left p-4 border-dotted border-b border-[#919EAB]'>
                                         <td className='px-3 py-4'>{item.id}</td>
                                         <td className='px-3 py-4'>{item.class_id}</td>

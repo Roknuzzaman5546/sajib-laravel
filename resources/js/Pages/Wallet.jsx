@@ -3,7 +3,7 @@ import { Head } from '@inertiajs/react';
 import React from 'react';
 
 const Wallet = ({ auth, dataClass }) => {
-    // console.log(dataClass);
+    console.log(dataClass);
     return (
         <AuthenticatedLayout
             user={auth.user}
@@ -24,7 +24,7 @@ const Wallet = ({ auth, dataClass }) => {
                         </thead>
                         <tbody>
                             {
-                                dataClass?.map((item) => (
+                                dataClass?.data.map((item) => (
                                     <tr key={item.id} className='text-left p-4 border-dotted border-b border-[#919EAB]'>
                                         <td className='px-3 py-4'>{item.id}</td>
                                         <td className='px-3 py-4'>{item.classes_name}</td>

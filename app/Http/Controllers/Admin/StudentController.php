@@ -14,7 +14,7 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $dataStudents = DB::table('students')->join('classes', 'students.class_id', 'classes.id')->get();
+        $dataStudents = DB::table('students')->paginate(5);
         // $first = DB::table('students')
         //     ->whereNull('name');
 
@@ -23,7 +23,10 @@ class StudentController extends Controller
         //     ->union($first)
         //     ->get();
         // return response()->json($users);
-        return Inertia::render('Students/AllStudents', ['dataStudents' => $dataStudents]);
+        // $dataStudents = DB::table('students')->paginate(3);
+        // dd($dataStudents);
+
+        return Inertia::render('Students/AllStudents', ['dataStudents' => $dataStudents]) ;
     }
 
     /**
