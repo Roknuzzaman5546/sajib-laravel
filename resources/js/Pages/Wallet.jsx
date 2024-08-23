@@ -11,9 +11,9 @@ const Wallet = ({ auth, dataClass }) => {
         >
             <Head title="Wallet" />
             <div className=' p-5'>
-                <div className='overflow-auto whitespace-nowrap card-shadow-2 border card-shadow-2 border-[#919EAB33] border-b-0 rounded-b-none rounded-xl'>
+                <div className='overflow-auto whitespace-nowrap border border-[#919EAB33] rounded-b-none rounded-xl'>
                     <table className='w-full text-[#333333]'>
-                        <thead className=' bg-[#F1F3F7]'>
+                        <thead className=' bg-white'>
                             <tr className='text-left p-4 justify-between ml-5'>
                                 <th className='px-3 py-4'>Id</th>
                                 <th className='px-3 py-4'>Class</th>

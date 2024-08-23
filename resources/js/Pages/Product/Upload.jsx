@@ -34,7 +34,7 @@ const Upload = ({ auth, status }) => {
             <h2 className=' text-2xl font-bold mt-5 mb-5 text-center text-blue-600 font-serif'>This is product upload file</h2>
 
             <form onSubmit={submit}>
-                <div className=' w-1/2 p-10 mx-auto bg-lime-400 rounded-md mt-10'>
+                <div className=' w-1/2 p-10 mx-auto bg-white rounded-md mt-10'>
                     <div>
                         <InputLabel htmlFor="name" value="Name" />
                         <TextInput
@@ -43,7 +43,7 @@ const Upload = ({ auth, status }) => {
                             name="name"
                             value={data.name}
                             placeholder={'name'}
-                            className="mt-1 block w-full p-2 text-black bg-blue-600"
+                            className="mt-1 block w-full p-2 text-black bg-gray-100"
                             autoComplete="username"
                             isFocused={true}
                             onChange={(e) => setData('name', e.target.value)}
@@ -57,7 +57,7 @@ const Upload = ({ auth, status }) => {
                             name="brand"
                             value={data.brand}
                             placeholder={'Product brand'}
-                            className="mt-1 block w-full p-2 text-black bg-blue-600"
+                            className="mt-1 block w-full p-2 text-black bg-gray-100"
                             autoComplete="username"
                             isFocused={true}
                             onChange={(e) => setData('brand', e.target.value)}
@@ -71,7 +71,7 @@ const Upload = ({ auth, status }) => {
                             name="country"
                             value={data.country}
                             placeholder={'Product country'}
-                            className="mt-1 block w-full p-2 text-black bg-blue-600"
+                            className="mt-1 block w-full p-2 text-black bg-gray-100"
                             autoComplete="username"
                             isFocused={true}
                             onChange={(e) => setData('country', e.target.value)}

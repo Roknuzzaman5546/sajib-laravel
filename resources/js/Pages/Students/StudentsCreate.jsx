@@ -51,64 +51,69 @@ const StudentsCreate = ({ auth, dataClasses }) => {
             <Head title="Laravel" />
             <h2 className=' text-2xl text-center font-semibold mt-2'>This is AddClass page here we can class add</h2>
             <form onSubmit={submit}>
-                <div className=' w-1/2 p-10 mx-auto bg-lime-400 rounded-md mt-10'>
-                    <div>
-                        <InputLabel htmlFor="name" value="Name" />
-                        <TextInput
-                            id="name"
-                            type="text"
-                            name="name"
-                            value={data.name}
-                            placeholder={'Class Name'}
-                            className="mt-1 block w-full p-2 text-black bg-blue-600"
-                            autoComplete="name"
-                            isFocused={true}
-                            onChange={(e) => setData('name', e.target.value)}
-                        />
-                        <InputError message={errors.name} className="mt-2" />
+                <div className=' w-[80%] p-10 mx-auto bg-white rounded-md mt-5 mb-5'>
+                    <div className=' flex items-center gap-1'>
+                        <div className=' w-1/2'>
+                            <InputLabel htmlFor="name" value="Name" />
+                            <TextInput
+                                id="name"
+                                type="text"
+                                name="name"
+                                value={data.name}
+                                placeholder={'Class Name'}
+                                className="mt-1 block w-full p-2 text-black bg-gray-100"
+                                autoComplete="name"
+                                isFocused={true}
+                                onChange={(e) => setData('name', e.target.value)}
+                            />
+                            <InputError message={errors.name} className="mt-2" />
+                        </div>
+                        <div className=' w-1/2'>
+                            <InputLabel htmlFor="name" value="Which class" />
+                            <select
+                                className="select select-bordered w-full max-w-xs mt-1 block text-black bg-gray-100"
+                                onChange={(e) => setData('class_id', e.target.value)}
+                            >
+                                <option disabled selected>Select Class</option>
+                                {dataClasses.map((item) => (
+                                    <option key={item.id} value={item.id}>
+                                        {item.classes_name}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
                     </div>
-                    <InputLabel htmlFor="name" value="Which class" />
-                    <select
-                        className="select select-bordered w-full max-w-xs mt-1 block p-2 text-black bg-blue-600"
-                        onChange={(e) => setData('class_id', e.target.value)} 
-                    >
-                        <option disabled selected>Select Class</option>
-                        {dataClasses.map((item) => (
-                            <option key={item.id} value={item.id}>
-                                {item.classes_name}
-                            </option>
-                        ))}
-                    </select>
-
-                    <div className=' my-2'>
-                        <InputLabel htmlFor="email" value="Email" />
-                        <TextInput
-                            id="email"
-                            type="text"
-                            name="email"
-                            value={data.email}
-                            placeholder={'Your email'}
-                            className="mt-1 block w-full p-2 text-black bg-blue-600"
-                            autoComplete="email"
-                            isFocused={true}
-                            onChange={(e) => setData('email', e.target.value)}
-                        />
-                        <InputError message={errors.email} className="mt-2" />
-                    </div>
-                    <div className=' my-2'>
-                        <InputLabel htmlFor="roll" value="Roll" />
-                        <TextInput
-                            id="roll"
-                            type="text"
-                            name="roll"
-                            value={data.roll}
-                            placeholder={'Your roll'}
-                            className="mt-1 block w-full p-2 text-black bg-blue-600"
-                            autoComplete="roll"
-                            isFocused={true}
-                            onChange={(e) => setData('roll', e.target.value)}
-                        />
-                        <InputError message={errors.roll} className="mt-2" />
+                    <div className=' flex items-center gap-1'>
+                        <div className=' my-2 w-1/2'>
+                            <InputLabel htmlFor="email" value="Email" />
+                            <TextInput
+                                id="email"
+                                type="text"
+                                name="email"
+                                value={data.email}
+                                placeholder={'Your email'}
+                                className="mt-1 block w-full p-2 text-black bg-gray-100"
+                                autoComplete="email"
+                                isFocused={true}
+                                onChange={(e) => setData('email', e.target.value)}
+                            />
+                            <InputError message={errors.email} className="mt-2" />
+                        </div>
+                        <div className=' my-2 w-1/2'>
+                            <InputLabel htmlFor="roll" value="Roll" />
+                            <TextInput
+                                id="roll"
+                                type="text"
+                                name="roll"
+                                value={data.roll}
+                                placeholder={'Your roll'}
+                                className="mt-1 block w-full p-2 text-black bg-gray-100"
+                                autoComplete="roll"
+                                isFocused={true}
+                                onChange={(e) => setData('roll', e.target.value)}
+                            />
+                            <InputError message={errors.roll} className="mt-2" />
+                        </div>
                     </div>
                     <div className=' my-2'>
                         <InputLabel htmlFor="phone" value="Phone" />
@@ -118,7 +123,7 @@ const StudentsCreate = ({ auth, dataClasses }) => {
                             name="phone"
                             value={data.phone}
                             placeholder={'Your phone'}
-                            className="mt-1 block w-full p-2 text-black bg-blue-600"
+                            className="mt-1 block w-full p-2 text-black bg-gray-100"
                             autoComplete="phone"
                             isFocused={true}
                             onChange={(e) => setData('phone', e.target.value)}
