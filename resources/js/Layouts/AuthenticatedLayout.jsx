@@ -15,10 +15,8 @@ export default function Authenticated({ user, header, children }) {
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content">
                     <div className='flex items-center justify-between border-b-2 border-gray-300 py-3 text-black px-4 z-10'>
-                        <ul className='flex justify-center items-center gap-5 '>
-                            <NavLink href={route('dashboard')} active={route().current('dashboard')}>
+                        <ul className='flex justify-center items-center gap-5 text-xl font-bold'>
                                 Dashboard
-                            </NavLink>
                         </ul>
                         <div className='flex items-center gap-5 md:gap-9'>
                             <div className='relative notifications z-10'>
