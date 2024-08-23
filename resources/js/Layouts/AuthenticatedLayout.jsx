@@ -10,20 +10,14 @@ export default function Authenticated({ user, header, children }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
 
     return (
-        <div className="min-h-screen">
+        <div className="min-h-screen bg-[#f3f1f6]">
             <div className="drawer lg:drawer-open">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content">
-                    <div className='flex items-center justify-between bg-lime-500 py-4 text-black px-4 z-10'>
+                    <div className='flex items-center justify-between border-b-2 border-gray-300 py-3 text-black px-4 z-10'>
                         <ul className='flex justify-center items-center gap-5 '>
                             <NavLink href={route('dashboard')} active={route().current('dashboard')}>
                                 Dashboard
-                            </NavLink>
-                            <NavLink href={route('wallet')} active={route().current('wallet')}>
-                                Wallet
-                            </NavLink>
-                            <NavLink href={route('product.upload')} active={route().current('product.upload')}>
-                                Upload Product
                             </NavLink>
                         </ul>
                         <div className='flex items-center gap-5 md:gap-9'>
@@ -87,17 +81,17 @@ export default function Authenticated({ user, header, children }) {
                         </div>
                     </div>
                     {/* Page content here */}
-                    <main>{children}</main>
+                    <main >{children}</main>
                 </div>
                 <div className="drawer-side">
                     <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
-                    <div className='bg-lime-500 min-h-full w-64 p-4'>
-                        <div className=' flex flex-col items-center justify-center mt-5 gap-2'>
-                            <Link href="/">
-                                <ApplicationLogo className="block h-9 w-auto fill-current text-gray-800" />
-                            </Link>
-                            <h2 className=' text-2xl font-extrabold text-black uppercase'>Re<span className=' text-red-600'>Chart</span>shop</h2>
-                        </div>
+                    <div className='bg-white border-r-2 border-gray-300 min-h-full w-60 p-4'>
+                        <Link href="/">
+                            <div className=' flex items-center justify-center gap-2 border border-gray-300 rounded-md py-[6px]'>
+                                <ApplicationLogo className="block h-5 w-auto fill-current text-gray-800" />
+                                <h2 className='font-bold text-black uppercase'>Re<span className=' text-red-600'>Chart</span>shop</h2>
+                            </div>
+                        </Link>
                         <ul className="menu text-base-content mt-5">
                             {/* Sidebar content here */}
                             <NavLink href={route('dashboard')} active={route().current('dashboard')}>

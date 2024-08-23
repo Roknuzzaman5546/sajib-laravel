@@ -25,9 +25,9 @@ const PostFrom = ({ auth }) => {
             header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">Product Upload</h2>}
         >
             <Head title="Laravel" />
-            <h2 className=' text-2xl my-8'>This page is PostFrom page</h2>
+            <h2 className=' text-2xl my-5 text-center'>This page is PostFrom page</h2>
             <form onSubmit={submit}>
-                <div className=' w-1/2 p-10 mx-auto bg-lime-400 rounded-md mt-10'>
+                <div className=' w-1/2 p-10 mx-auto bg-white rounded-md mt-10'>
                     <div>
                         <InputLabel htmlFor="name" value="Name" />
                         <TextInput
@@ -36,7 +36,7 @@ const PostFrom = ({ auth }) => {
                             name="name"
                             value={data.name}
                             placeholder={'username'}
-                            className="mt-1 block w-full p-2 text-black bg-blue-600"
+                            className="mt-1 block w-full p-2 text-black bg-gray-200"
                             autoComplete="username"
                             isFocused={true}
                             onChange={(e) => setData('name', e.target.value)}
@@ -51,7 +51,7 @@ const PostFrom = ({ auth }) => {
                             name="email"
                             value={data.email}
                             placeholder={'Your email'}
-                            className="mt-1 block w-full p-2 text-black bg-blue-600"
+                            className="mt-1 block w-full p-2 text-black bg-gray-200"
                             autoComplete="username"
                             isFocused={true}
                             onChange={(e) => setData('email', e.target.value)}
@@ -66,7 +66,7 @@ const PostFrom = ({ auth }) => {
                             name="password"
                             value={data.password}
                             placeholder={'Product password'}
-                            className="mt-1 block w-full p-2 text-black bg-blue-600"
+                            className="mt-1 block w-full p-2 text-black bg-gray-200"
                             autoComplete="password"
                             isFocused={true}
                             onChange={(e) => setData('password', e.target.value)}
