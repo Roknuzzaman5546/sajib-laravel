@@ -3,7 +3,9 @@ import ApplicationLogo from '@/Components/ApplicationLogo';
 import Dropdown from '@/Components/Dropdown';
 import NavLink from '@/Components/NavLink';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
-import { LuBell } from "react-icons/lu";
+import { LuBell, LuLayoutDashboard } from "react-icons/lu";
+import { IoWalletOutline } from "react-icons/io5";
+import { IoIosContact } from "react-icons/io";
 import { Link } from '@inertiajs/react';
 
 export default function Authenticated({ user, header, children }) {
@@ -16,7 +18,7 @@ export default function Authenticated({ user, header, children }) {
                 <div className="drawer-content">
                     <div className='flex items-center justify-between border-b-2 border-gray-300 py-3 text-black px-4 z-10'>
                         <ul className='flex justify-center items-center gap-5 text-xl font-bold'>
-                                Dashboard
+                            Dashboard
                         </ul>
                         <div className='flex items-center gap-5 md:gap-9'>
                             <div className='relative notifications z-10'>
@@ -35,7 +37,7 @@ export default function Authenticated({ user, header, children }) {
                                             active={route().current('profile.edit')}
                                         >
                                             <img src="/assets/profile-drop.png" className='w-[14.5px] h-[14.5px]' alt="dashbord icons" />
-                                            <span className='text-sm font-normal'>
+                                            <span className='ml-1'>
                                                 Profile
                                             </span>
                                         </NavLink>
@@ -55,7 +57,7 @@ export default function Authenticated({ user, header, children }) {
                                             <div
                                                 className="flex items-center gap-1"
                                             >
-                                                <img src="/assets/Balance.png" className='w-[14.5px] h-[14.5px]' alt="dashbord icons" />
+                                                <img src="/assets/Balance.png" className='w-[14.5px] h-[14.5px]' alt="dashboard icons" />
                                                 <span className='text-sm font-normal'>
                                                     Balance
                                                 </span>
@@ -93,22 +95,37 @@ export default function Authenticated({ user, header, children }) {
                         <ul className="menu text-base-content mt-5">
                             {/* Sidebar content here */}
                             <NavLink href={route('dashboard')} active={route().current('dashboard')}>
-                                Dashboard
+                                <LuLayoutDashboard />
+                                <span className=' ml-1'>
+                                    Dashboard
+                                </span>
                             </NavLink>
                             <NavLink href={route('wallet')} active={route().current('wallet')}>
-                                Wallet
+                                <IoWalletOutline />
+                                <span className=' ml-1'>
+                                    Wallet
+                                </span>
                             </NavLink>
                             <NavLink href={route('contact')} active={route().current('contact')}>
-                                Contact
-                            </NavLink>
-                            <NavLink href={route('product.upload')} active={route().current('product.upload')}>
-                                Upload Product
+                                <IoIosContact />
+                                <span className=' ml-1'>
+                                    Contact
+                                </span>
                             </NavLink>
                             <NavLink href={route('laravel')} active={route().current('laravel')}>
                                 Laravel Query
                             </NavLink>
                             <NavLink href={route('about.us')} active={route().current('about.us')}>
                                 About US
+                            </NavLink>
+                            <NavLink
+                                href={route('profile.edit')}
+                                active={route().current('profile.edit')}
+                            >
+                                <img src="/assets/profile-drop.png" className='w-[14.5px] h-[14.5px]' alt="dashbord icons" />
+                                <span className=' ml-1'>
+                                    Profile
+                                </span>
                             </NavLink>
                         </ul>
                     </div>

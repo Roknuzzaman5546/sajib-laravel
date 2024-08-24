@@ -9,11 +9,6 @@ use Illuminate\Support\Facades\Crypt;
 
 class UploadController extends Controller
 {
-    //
-    public function indexUpload()
-    {
-        return Inertia::render('Product/Upload');
-    }
     public function productStore(Request $request)
     {
         // dd($request->has('name'));

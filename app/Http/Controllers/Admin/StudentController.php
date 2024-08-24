@@ -68,7 +68,7 @@ class StudentController extends Controller
     {
         $user = DB::table('students')->where('id', $id)->first();
         $users = DB::table('students')->max('phone');
-        dd($users);
+        // dd($users);
         return Inertia::render('Students/SingleStudent', ['dataStudent' => $user]);
     }
 
