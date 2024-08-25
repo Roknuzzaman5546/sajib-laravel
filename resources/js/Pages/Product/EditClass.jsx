@@ -50,7 +50,7 @@ const EditClass = ({auth, editData}) => {
             <Head title="Edit" />
             <h2 className=' text-2xl text-center font-semibold mt-2'>This is {editData.classes_name} page here you can class Update</h2>
             <form onSubmit={submit}>
-                <div className=' w-1/2 p-10 mx-auto bg-lime-400 rounded-md mt-10'>
+                <div className=' w-1/2 p-10 mx-auto bg-white rounded-md mt-10'>
                     <div>
                         <InputLabel htmlFor="classes_name" value="Name" />
                         <TextInput
@@ -59,7 +59,7 @@ const EditClass = ({auth, editData}) => {
                             name="classes_name"
                             value={data.classes_name}
                             placeholder={'Class Name'}
-                            className="mt-1 block w-full p-2 text-black bg-blue-600"
+                            className="mt-1 block w-full p-2 text-black bg-gray-100"
                             autoComplete="classes_name"
                             isFocused={true}
                             onChange={(e) => setData('classes_name', e.target.value)}
@@ -74,7 +74,7 @@ const EditClass = ({auth, editData}) => {
                             name="email"
                             value={data.email}
                             placeholder={'Your email'}
-                            className="mt-1 block w-full p-2 text-black bg-blue-600"
+                            className="mt-1 block w-full p-2 text-black bg-gray-100"
                             autoComplete="email"
                             isFocused={true}
                             onChange={(e) => setData('email', e.target.value)}

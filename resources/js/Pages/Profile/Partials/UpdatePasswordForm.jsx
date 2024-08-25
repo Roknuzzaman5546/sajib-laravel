@@ -5,6 +5,7 @@ import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import { useForm } from '@inertiajs/react';
 import { Transition } from '@headlessui/react';
+import Swal from 'sweetalert2';
 
 export default function UpdatePasswordForm({ className = '' }) {
     const passwordInput = useRef();
@@ -18,19 +19,29 @@ export default function UpdatePasswordForm({ className = '' }) {
 
     const updatePassword = (e) => {
         e.preventDefault();
-
         put(route('password.update'), {
             preserveScroll: true,
-            onSuccess: () => reset(),
+            preserveScroll: true,
+            onSuccess: () => {
+                reset();
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Your Password changed",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+                router.visit(route('dashboard'))
+            },
             onError: (errors) => {
-                if (errors.password) {
-                    reset('password', 'password_confirmation');
-                    passwordInput.current.focus();
-                }
-
-                if (errors.current_password) {
-                    reset('current_password');
-                    currentPasswordInput.current.focus();
+                console.log(errors)
+                if (errors) {
+                    Swal.fire({
+                        title: 'Error!',
+                        text: {errors},
+                        icon: 'error',
+                        confirmButtonText: 'Cool'
+                    })
                 }
             },
         });
