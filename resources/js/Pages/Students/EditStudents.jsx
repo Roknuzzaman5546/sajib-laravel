@@ -16,6 +16,7 @@ const EditStudents = ({ auth, dataStudents, dataClasses }) => {
         roll: undefined
     });
 
+    console.log(data)
     const submit = (e) => {
         e.preventDefault();
         patch(route('students.update', dataStudents.id), {
@@ -59,7 +60,7 @@ const EditStudents = ({ auth, dataStudents, dataClasses }) => {
                                 id="name"
                                 type="text"
                                 name="name"
-                                value={data.name}
+                                value={data.name ? data.name : dataStudents.name}
                                 defaultValue={dataStudents.name}
                                 placeholder={'Class Name'}
                                 className="mt-1 block w-full p-2 text-black bg-gray-100"
@@ -94,7 +95,7 @@ const EditStudents = ({ auth, dataStudents, dataClasses }) => {
                                 id="email"
                                 type="text"
                                 name="email"
-                                value={data.email}
+                                value={data.email ? data.email : dataStudents.email}
                                 defaultValue={dataStudents.email}
                                 placeholder={'Your email'}
                                 className="mt-1 block w-full p-2 text-black bg-gray-100"
@@ -104,17 +105,18 @@ const EditStudents = ({ auth, dataStudents, dataClasses }) => {
                             />
                             <InputError message={errors.email} className="mt-2" />
                         </div>
-                        <div className=' my-2 w-1/2'>
                             <InputLabel htmlFor="roll" value="Roll" />
-                            <TextInput
+
+                        <div className=' my-2 w-1/2'>
+                        <TextInput
                                 id="roll"
                                 type="text"
                                 name="roll"
-                                value={data.roll}
+                                value={data.roll ? data.roll : dataStudents.roll}
                                 defaultValue={dataStudents.roll}
                                 placeholder={'Your roll'}
                                 className="mt-1 block w-full p-2 text-black bg-gray-100"
-                                autoComplete="roll"
+                                autoComplete="roll" 
                                 isFocused={true}
                                 onChange={(e) => setData('roll', e.target.value)}
                             />
@@ -127,7 +129,7 @@ const EditStudents = ({ auth, dataStudents, dataClasses }) => {
                             id="phone"
                             type="text"
                             name="phone"
-                            value={data.phone}
+                            value={data.phone ? data.phone : dataStudents.phone}
                             defaultValue={dataStudents.phone}
                             placeholder={'Your phone'}
                             className="mt-1 block w-full p-2 text-black bg-gray-100"

@@ -15,7 +15,7 @@ const PostFrom = ({ auth }) => {
     });
 
     const submit = (e) => {
-        e.preventDefault();
+        e.preventDefault
         post(route('contact.post'));
     };
 
