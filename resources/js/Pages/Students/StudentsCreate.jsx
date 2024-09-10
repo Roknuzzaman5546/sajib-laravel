@@ -29,7 +29,7 @@ const StudentsCreate = ({ auth, dataClasses }) => {
                     showConfirmButton: false,
                     timer: 2000
                 });
-                reset()
+                setData()
             },
             onError: (errors) => {
                 console.log(errors)
