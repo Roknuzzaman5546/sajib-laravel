@@ -9,7 +9,7 @@ import PrimaryButton from '@/Components/PrimaryButton';
 
 const StudentsCreate = ({ auth, dataClasses }) => {
     // console.log(dataClasses);
-    const { data, setData, processing, errors, post } = useForm({
+    const { data, setData, processing, errors, post, reset } = useForm({
         name: undefined,
         class_id: undefined,
         email: undefined,
@@ -29,6 +29,7 @@ const StudentsCreate = ({ auth, dataClasses }) => {
                     showConfirmButton: false,
                     timer: 2000
                 });
+                reset()
             },
             onError: (errors) => {
                 console.log(errors)
@@ -60,7 +61,7 @@ const StudentsCreate = ({ auth, dataClasses }) => {
                                 type="text"
                                 name="name"
                                 value={data.name}
-                                placeholder={'Class Name'}
+                                placeholder={'Student Name'}
                                 className="mt-1 block w-full p-2 text-black bg-gray-100"
                                 autoComplete="name"
                                 isFocused={true}

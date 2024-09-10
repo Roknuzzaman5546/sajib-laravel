@@ -51,7 +51,7 @@ const AddClass = ({ auth }) => {
             <form onSubmit={submit}>
                 <div className=' w-1/2 p-10 mx-auto bg-white rounded-md mt-10'>
                     <div>
-                        <InputLabel htmlFor="classes_name" value="Name" />
+                        <InputLabel htmlFor="classes_name" value="Class Name" />
                         <TextInput
                             id="classes_name"
                             type="text"
