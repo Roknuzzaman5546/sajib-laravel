@@ -4,14 +4,16 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use DB;
+use Illuminate\Support\Facades\DB;
 use Inertia\Inertia;
 
 class ClassController extends Controller
 {
     public function index()
     {
-        $dataClass = DB::table('classes')->paginate(2);
+        // $dataClass = DB::table('classes')->paginate(2);
+        $dataClass = DB::table('classes')->find(5);
+        // dd($dataClass);
         return Inertia::render('Wallet', ['dataClass' => $dataClass]);
         // dd($dataClass);
     }
@@ -43,6 +45,7 @@ class ClassController extends Controller
     public function updateRoute($id)
     {
         $data = DB::table('classes')->where('id', $id)->first();
+        // $data = DB::table('classes')->where()
         // dd($data);
         return Inertia::render('Product/EditClass', ['editData' => $data]);
     }
