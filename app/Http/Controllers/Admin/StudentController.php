@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Inertia\Inertia;
-use DB;
 
 class StudentController extends Controller
 {
@@ -14,7 +14,7 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $dataStudents = DB::table('students')->paginate(5);
+        // $dataStudents = DB::table('students')->paginate(5);
         // $first = DB::table('students')
         //     ->whereNull('name');
 
@@ -23,8 +23,8 @@ class StudentController extends Controller
         //     ->union($first)
         //     ->get();
         // return response()->json($users);
-        // $dataStudents = DB::table('students')->paginate(3);
-        // dd($dataStudents);
+        $dataStudents = DB::table('students')->pluck('email');
+        dd($dataStudents);
 
         return Inertia::render('Students/AllStudents', ['dataStudents' => $dataStudents]) ;
     }

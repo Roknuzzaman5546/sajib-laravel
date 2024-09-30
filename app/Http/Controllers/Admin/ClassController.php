@@ -11,8 +11,8 @@ class ClassController extends Controller
 {
     public function index()
     {
+        $dataClass = DB::table('classes')->get();
         // $dataClass = DB::table('classes')->paginate(2);
-        $dataClass = DB::table('classes')->find(5);
         // dd($dataClass);
         return Inertia::render('Wallet', ['dataClass' => $dataClass]);
         // dd($dataClass);
